@@ -17,14 +17,14 @@ ERROR_LOG="/var/log/httpd/"$NAME"_error_log"
 
 # Create Document Root Directory if it doesn't exist
 if [ ! -d "$DOCUMENT_ROOT" ]; then
-                    mkdir -p "$DOCUMENT_ROOT"
-                                echo "<html><h1>Welcome to $SERVER_NAME</h1></html>" > "$DOCUMENT_ROOT/index.html"
-                                                    echo "Created document root: $DOCUMENT_ROOT"
-                                                            else
-                                                                                        echo "Document root already exists: $DOCUMENT_ROOT"
-                                                                                                        fi
+ mkdir -p "$DOCUMENT_ROOT"
+echo "<html><h1>Welcome to $SERVER_NAME</h1></html>" > "$DOCUMENT_ROOT/index.html"
+echo "Created document root: $DOCUMENT_ROOT"
+else
+echo "Document root already exists: $DOCUMENT_ROOT"
+fi
 
-                                                                                                                        # Create Virtual Host Configuration
+# Create Virtual Host Configuration
 
            cat <<EOL > "$VHOST_CONFIG"
 <VirtualHost $ip:80>
